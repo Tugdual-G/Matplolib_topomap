@@ -37,4 +37,3 @@ dx = 25
 rgb = ls.shade(subset, cmap=cmap, blend_mode="hsv", dx=dx, dy=dx)
 plt.imshow(rgb)
 plt.show()
-
