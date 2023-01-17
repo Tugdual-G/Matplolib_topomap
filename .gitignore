@@ -1,2 +1,3 @@
 tmp/
 carte.py
+__pycache__/
