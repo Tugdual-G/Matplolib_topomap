@@ -1,75 +1,102 @@
 #!/usr/bin/env python3
+import pandas as pd
 import matplotlib.pyplot as plt
-from select_shape import select_shape_data
-from select_raster import select_raster
+from core.select_shape import select_shape_data
+from core.select_raster import select_raster
 import numpy as np
 from matplotlib.colors import LightSource
 import glob
 from rasterio.plot import show
 
-def plot_fname(dataframe, fname, theme_dict):
-    df = dataframe[dataframe["fclass"].isin(fname)]
-    df.plot(ax=ax, color=theme_dict, linewidth=1)
-
-styles = { "category" : {"fname":["fname1","fname2"], "colour":"lightblue"}
-
-}
-
+# Window, area of interest from center coordinates x0, y0
+# projection lambert93
 x0 = 412086
 y0 = 6608982
 margin = 5e3
-left = x0-margin
+left = x0 - margin
 right = x0 + margin
 bottom = y0 - margin
 top = y0 + margin
 bounds = (left, bottom, right, top)
 
-dir_path = '/home/tugdual/Downloads/osm_pays_loire/'
-land_path = 'gis_osm_landuse_a_free_1.shp'
+txtmargin = margin * 0.8
+txtleft = x0 - txtmargin
+txtright = x0 + txtmargin
+txtbottom = y0 - txtmargin
+txttop = y0 + txtmargin
+txt_bounds = (txtleft, txtbottom, txtright, txttop)
+
+# stylesheet specific to osm data fclass
+style0 = pd.read_csv("map_style.csv")
+style = style0[(style0["use"] == True) & (style0["category"] != "places")].set_index(
+    "fclass"
+)
+txt_style = style0[
+    (style0["use"] == True) & (style0["category"] == "places")
+].set_index("fclass")
+print(50 * "-")
+print(style)
+print(50 * "-")
+print(txt_style)
+print(50 * "-")
+
+# data directory and files path
+dir_path = "/home/tugdual/Downloads/osm_pays_loire/"
+land_path = "gis_osm_landuse_a_free_1.shp"
 water_path = "gis_osm_water_a_free_1.shp"
 road_path = "gis_osm_roads_free_1.shp"
+places_path = "gis_osm_places_free_1.shp"
 
-land_df = select_shape_data(bounds, dir_path+land_path)
-land_df = land_df.to_crs("EPSG:2154")
-forest_df = land_df[land_df["fclass"]=="forest"]
-grass_df = land_df[(land_df["fclass"]=="grass")|(land_df["fclass"]=="meadow")]
-crop_df = land_df[(land_df["fclass"]=="farmland")]
+# extract data in area of interest
+land_df = select_shape_data(bounds, dir_path + land_path)
+water_df = select_shape_data(bounds, dir_path + water_path)
+road_df = select_shape_data(bounds, dir_path + road_path)
+places_df = select_shape_data(txt_bounds, dir_path + places_path)
 
-water_df = select_shape_data(bounds, dir_path+water_path)
-water_df = water_df.to_crs("EPSG:2154")
-lake_df = water_df[water_df["fclass"].isin(["riverbank","water"])]
+# stitch into one dataframe
+df = pd.concat([land_df, water_df, road_df, places_df])
+df = df[df["fclass"].isin(style.index.tolist() + txt_style.index.tolist())]
+df = df.to_crs("EPSG:2154")
 
-road_df = select_shape_data(bounds, dir_path+road_path)
-road_df = road_df.to_crs("EPSG:2154")
-major_roads = road_df[road_df["fclass"]=="primary"]
-sec_roads = road_df[road_df["fclass"]=="secondary"]
-tert_roads = road_df[road_df["fclass"]=="tertiary"]
-
-
-
-fig, ax = plt.subplots()
-forest_df.plot(ax=ax, facecolor="forestgreen", label="forest")
-grass_df.plot(ax=ax, facecolor="lawngreen", label="grass, meadow")
-crop_df.plot(ax=ax, facecolor="yellow", label="farmland")
-major_roads.plot(ax=ax, color="dimgrey", linewidth=3)
-sec_roads.plot(ax=ax, color="dimgrey", linewidth=2)
-tert_roads.plot(ax=ax, color="dimgrey", linewidth=1)
 
 # raster data
 step = 1
-
 dir_name = "/home/tugdual/Downloads/BDALTIV2_2-0_25M_ASC_LAMB93-IGN69_D085_2021-09-15/BDALTIV2/1_DONNEES_LIVRAISON_2021-10-00008/BDALTIV2_MNT_25M_ASC_LAMB93_IGN69_D085"
 f_paths = glob.glob(dir_name + "/*.asc")
-
 data, x, y = select_raster(bounds, f_paths, step=step)
 
-ls = LightSource(azdeg=315, altdeg=45)
-dx = 25*step
-grayscale = ls.hillshade(data[0], dx=dx, dy=dx)
-ax.pcolormesh(x,y, grayscale, alpha=0.6, cmap="gray")
 
-lake_df.plot(ax=ax, facecolor="lightblue")
+# PLOT
+fig, ax = plt.subplots()
+print("-----------------")
+for fclass in style.index.tolist():
+    print(style.loc[fclass]["style"])
+    styledict = eval(style.loc[fclass]["style"])
+    df[df["fclass"] == fclass].plot(ax=ax, **styledict)
+
+for fclass in txt_style.index.tolist():
+    styledict = eval(txt_style.loc[fclass]["style"])
+    txt_df = df.loc[df["fclass"] == fclass]
+    for name in txt_df["name"]:
+        xt = txt_df[txt_df["name"] == name]["geometry"].centroid.x.iloc[0]
+        yt = txt_df[txt_df["name"] == name]["geometry"].centroid.y.iloc[0]
+        ax.text(
+            xt,
+            yt,
+            s=name,
+            horizontalalignment="center",
+            verticalalignment="center",
+            **styledict
+        )
+
+ls = LightSource(azdeg=315, altdeg=45)
+dx = 25
+grayscale = ls.hillshade(data[0], dx=dx, dy=dx)
+ax.pcolormesh(x, y, grayscale, alpha=0.5, cmap="gray")
+print(y.shape)
+# ax.contour(x,y,data[0], colors="k", linewidths=0.5)
 
 ax.set_xlim(left, right)
 ax.set_ylim(bottom, top)
+plt.axis("off")
 plt.show()
