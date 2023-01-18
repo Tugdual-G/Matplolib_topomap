@@ -17,17 +17,17 @@ riverbank,water,"{'facecolor': 'lightblue', 'zorder':100}",True
 water,water,"{'facecolor': 'lightblue', 'zorder':100}",True
 wetland,water,"{'facecolor': 'lightblue', 'zorder':100}",True
 residential,roads,"{'color': 'grey', 'linewidth': 1}",True
-track,roads,"{'color': 'tan', 'linewidth': 1}",True
+track,roads,"{'color': 'tan', 'linewidth': 0.5}",True
 unclassified,roads,"{'color': 'grey', 'linewidth': 1, 'linestyle':'--'}",True
 tertiary,roads,"{'color': 'grey', 'linewidth': 1}",True
 footway,roads,"{'color': 'grey', 'linewidth': 1}",False
-secondary,roads,"{'color': 'grey', 'linewidth': 2}",True
+secondary,roads,"{'color': 'grey', 'linewidth': 1}",True
 service,roads,"{'color': 'grey', 'linewidth': 1}",True
 primary,roads,"{'color': 'grey', 'linewidth': 1}",True
-track_grade2,roads,"{'color': 'tan', 'linewidth': 1}",True
+track_grade2,roads,"{'color': 'tan', 'linewidth': 0.5}",True
 steps,roads,"{'color': 'grey', 'linewidth': 1}",False
-path,roads,"{'color': 'tan', 'linewidth': 1, 'linestyle':':'}",True
-track_grade1,roads,"{'color': 'tan', 'linewidth': 1}",True
+path,roads,"{'color': 'tan', 'linewidth': 0.5, 'linestyle':':'}",True
+track_grade1,roads,"{'color': 'tan', 'linewidth': 0.5}",True
 primary_link,roads,"{'color': 'grey', 'linewidth': 2}",True
 cycleway,roads,"{'color': 'grey', 'linewidth': 1}",False
 track_grade3,roads,"{'color': 'tan', 'linewidth': 1}",False

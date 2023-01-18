@@ -34,11 +34,6 @@ style = style0[(style0["use"] == True) & (style0["category"] != "places")].set_i
 txt_style = style0[
     (style0["use"] == True) & (style0["category"] == "places")
 ].set_index("fclass")
-print(50 * "-")
-print(style)
-print(50 * "-")
-print(txt_style)
-print(50 * "-")
 
 # data directory and files path
 dir_path = "/home/tugdual/Downloads/osm_pays_loire/"
@@ -68,9 +63,7 @@ data, x, y = select_raster(bounds, f_paths, step=step)
 
 # PLOT
 fig, ax = plt.subplots()
-print("-----------------")
 for fclass in style.index.tolist():
-    print(style.loc[fclass]["style"])
     styledict = eval(style.loc[fclass]["style"])
     df[df["fclass"] == fclass].plot(ax=ax, **styledict)
 
@@ -92,11 +85,11 @@ for fclass in txt_style.index.tolist():
 ls = LightSource(azdeg=315, altdeg=45)
 dx = 25
 grayscale = ls.hillshade(data[0], dx=dx, dy=dx)
-ax.pcolormesh(x, y, grayscale, alpha=0.5, cmap="gray")
-print(y.shape)
+ax.pcolormesh(x, y, grayscale, alpha=0.7, cmap="gray")
 # ax.contour(x,y,data[0], colors="k", linewidths=0.5)
 
 ax.set_xlim(left, right)
 ax.set_ylim(bottom, top)
 plt.axis("off")
+# plt.savefig("map.png", bbox_inches=0, dpi=250)
 plt.show()
