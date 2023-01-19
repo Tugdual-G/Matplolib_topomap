@@ -62,7 +62,8 @@ data, x, y = select_raster(bounds, f_paths, step=step)
 
 
 # PLOT
-fig, ax = plt.subplots()
+print("generating figure")
+fig, ax = plt.subplots(frameon=False)
 for fclass in style.index.tolist():
     styledict = eval(style.loc[fclass]["style"])
     df[df["fclass"] == fclass].plot(ax=ax, **styledict)
@@ -85,11 +86,12 @@ for fclass in txt_style.index.tolist():
 ls = LightSource(azdeg=315, altdeg=45)
 dx = 25
 grayscale = ls.hillshade(data[0], dx=dx, dy=dx)
-ax.pcolormesh(x, y, grayscale, alpha=0.7, cmap="gray")
+ax.pcolormesh(x, y, grayscale, alpha=0.4, cmap="gray", shading="gouraud", zorder=20)
 # ax.contour(x,y,data[0], colors="k", linewidths=0.5)
 
 ax.set_xlim(left, right)
 ax.set_ylim(bottom, top)
-plt.axis("off")
-# plt.savefig("map.png", bbox_inches=0, dpi=250)
+ax.set_axis_off()
+ax.set_frame_on(False)
+# plt.savefig("test.png", dpi=200, bbox_inches="tight", pad_inches=0)
 plt.show()
