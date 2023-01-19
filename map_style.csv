@@ -18,18 +18,18 @@ water,water,"{'facecolor': 'lightblue', 'zorder':100}",True
 wetland,water,"{'facecolor': 'lightblue', 'zorder':100}",True
 residential,roads,"{'color': 'lightgrey', 'linewidth': 1, 'zorder':10}",True
 track,roads,"{'color': 'tan', 'linewidth': 0.5, 'zorder':101}",True
-unclassified,roads,"{'color': 'grey', 'linewidth': 1, 'linestyle':'--', 'zorder':101}",True
-tertiary,roads,"{'color': 'grey', 'linewidth': 1, 'zorder':101}",True
-footway,roads,"{'color': 'grey', 'linewidth': 1, 'zorder':101}",False
-secondary,roads,"{'color': 'grey', 'linewidth': 1, 'zorder':101}",True
-service,roads,"{'color': 'grey', 'linewidth': 1, 'zorder':101}",True
-primary,roads,"{'color': 'grey', 'linewidth': 1, 'zorder':101}",True
+unclassified,roads,"{'color': 'dimgrey', 'linewidth': 1, 'linestyle':'--', 'zorder':101}",True
+tertiary,roads,"{'color': 'dimgrey', 'linewidth': 1, 'zorder':101}",True
+footway,roads,"{'color': 'dimgrey', 'linewidth': 1, 'zorder':101}",False
+secondary,roads,"{'color': 'dimgrey', 'linewidth': 1, 'zorder':101}",True
+service,roads,"{'color': 'dimgrey', 'linewidth': 1, 'zorder':101}",True
+primary,roads,"{'color': 'dimgrey', 'linewidth': 1, 'zorder':101}",True
 track_grade2,roads,"{'color': 'tan', 'linewidth': 0.5, 'zorder':101}",True
-steps,roads,"{'color': 'grey', 'linewidth': 1, 'zorder':101}",False
+steps,roads,"{'color': 'dimgrey', 'linewidth': 1, 'zorder':101}",False
 path,roads,"{'color': 'tan', 'linewidth': 0.5, 'linestyle':':', 'zorder':101}",True
 track_grade1,roads,"{'color': 'tan', 'linewidth': 0.5, 'zorder':101}",True
-primary_link,roads,"{'color': 'grey', 'linewidth': 2, 'zorder':101}",True
-cycleway,roads,"{'color': 'grey', 'linewidth': 1, 'zorder':101}",False
+primary_link,roads,"{'color': 'dimgrey', 'linewidth': 2, 'zorder':101}",True
+cycleway,roads,"{'color': 'dimgrey', 'linewidth': 1, 'zorder':101}",False
 track_grade3,roads,"{'color': 'tan', 'linewidth': 1, 'zorder':101}",False
 track_grade4,roads,"{'color': 'tan', 'linewidth': 1, 'zorder':101}",False
 track_grade5,roads,"{'color': 'tan', 'linewidth': 1, 'zorder':101}",False

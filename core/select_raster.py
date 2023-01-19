@@ -11,7 +11,7 @@ def select_raster(bounds, files_paths, step=1, epsg="EPSG:2154"):
 
     for f in files_paths:
         p = PurePosixPath(f)
-        p = p.with_suffix(".tiff")
+        # p = p.with_suffix(".tiff")
         datasets += [rasterio.open(p.as_posix(), crs=epsg)]
 
     data, out_transform = merge(datasets, bounds=bounds)

@@ -4,7 +4,9 @@ import pandas as pd
 import pyproj
 
 
-def select_shape_data(bounds, file_path, data_crs="EPSG:4326", bounds_crs="epsg:2154"):
+def select_shape_data(
+    bounds, files_paths, data_crs="EPSG:4326", bounds_crs="epsg:2154"
+):
     """Crop and merge data files"""
     left, bottom, right, top = bounds
     lamb93_osmproj = pyproj.Transformer.from_crs("epsg:2154", "EPSG:4326")
@@ -13,7 +15,11 @@ def select_shape_data(bounds, file_path, data_crs="EPSG:4326", bounds_crs="epsg:
     bottom, left, top, right = lamb93_osmproj.transform_bounds(left, bottom, right, top)
     bbox = (left, bottom, right, top)
 
-    return gpd.read_file(file_path, bbox=bbox)
+    files = []
+    for path in files_paths:
+        files += [gpd.read_file(path, bbox=bbox)]
+
+    return pd.concat(files)
 
 
 if __name__ == "__main__":
