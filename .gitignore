@@ -2,3 +2,8 @@ tmp/
 carte.py
 __pycache__/
 data/
+elevation.png
+elevation_map.py 
+elevation_style.csv 
+elevation_style.org 
+test.png
