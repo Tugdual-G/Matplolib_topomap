@@ -12,7 +12,7 @@ from core.Carte import Carte
 positions = {"mervent": (411684, 6609470), "lebeugnon": (431768, 6615611)}
 x0, y0 = positions["mervent"]
 step = 1
-margin = 4e3
+margin = 5e3
 left = x0 - margin
 right = x0 + margin
 bottom = y0 - margin
@@ -53,11 +53,15 @@ carte.set_raster_data(f_paths, step)
 
 # PLOT
 print("generating figure")
-fig, ax = plt.subplots(frameon=False)
+fig, ax = plt.subplots()
 
+print("ploting shapes")
 carte.plot_shapes(ax)
+
+print("adding places labels")
 carte.plot_txt(ax)
 
+print("adding hill shade")
 x, y = carte.X, carte.Y
 elev = carte.raster_data[0]
 
@@ -69,11 +73,12 @@ ax.pcolormesh(
     x, y, black, alpha=0.3 * (1 - grayscale), cmap="gray", shading="gouraud", zorder=20
 )
 
-interlevels = np.arange(0, 300, 10)
-ax.contour(x, y, elev, colors="sienna", levels=interlevels, linewidths=0.5, zorder=18)
-levels = np.arange(0, 300, 50)
-CS = ax.contour(x, y, elev, colors="sienna", levels=levels, linewidths=0.7, zorder=19)
-# plt.clabel(CS, fontsize=7, inline=False, inline_spacing=5)
+# print("adding contour lines")
+# interlevels = np.arange(0, 300, 10)
+# ax.contour(x, y, elev, colors="sienna", levels=interlevels, linewidths=0.5, zorder=18)
+# levels = np.arange(0, 300, 50)
+# CS = ax.contour(x, y, elev, colors="sienna", levels=levels, linewidths=0.7, zorder=19)
+## plt.clabel(CS, fontsize=7, inline=False, inline_spacing=5)
 
 
 def onclick(event):

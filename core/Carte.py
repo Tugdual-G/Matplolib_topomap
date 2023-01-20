@@ -3,6 +3,7 @@ from core.select_raster import select_raster
 from core.select_shape import select_shape_data
 import pandas as pd
 import numpy as np
+import matplotlib.patheffects as pe
 
 
 class Carte:
@@ -50,11 +51,13 @@ class Carte:
 
     def plot_txt(self, ax):
 
-        txtmargin = self.margin * 0.8
+        txtmargin = self.margin
         txtleft = self.x0 - txtmargin
         txtright = self.x0 + txtmargin
         txtbottom = self.y0 - txtmargin
         txttop = self.y0 + txtmargin
+
+        # bbox=dict(boxstyle="round", alpha=0.5, color="w", linewidth=0),
 
         for fclass in self.txt_style.index.tolist():
             styledict = eval(self.txt_style.loc[fclass]["style"])
@@ -70,6 +73,9 @@ class Carte:
                     s=name,
                     horizontalalignment="center",
                     verticalalignment="center",
-                    bbox=dict(boxstyle="round", alpha=0.4, color="w"),
+                    clip_on=True,
+                    path_effects=[
+                        pe.withStroke(linewidth=3, alpha=0.7, foreground="white")
+                    ],
                     **styledict,
                 )
