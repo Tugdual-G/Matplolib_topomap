@@ -10,7 +10,7 @@ from core.Carte import Carte
 # Window, area of interest from center coordinates x0, y0
 # projection lambert93
 positions = {"mervent": (411684, 6609470), "lebeugnon": (431768, 6615611)}
-x0, y0 = positions["mervent"]
+x0, y0 = positions["lebeugnon"]
 step = 1
 margin = 5e3
 left = x0 - margin
@@ -23,7 +23,7 @@ bounds = (left, bottom, right, top)
 carte = Carte((x0, y0), margin)
 
 # stylesheet specific to osm data fclass
-style_path = "map_style.csv"
+style_path = "styles/map_style.csv"
 carte.set_style(style_path)
 
 
@@ -65,20 +65,29 @@ print("adding hill shade")
 x, y = carte.X, carte.Y
 elev = carte.raster_data[0]
 
-ls = LightSource(azdeg=100, altdeg=45)
+ls = LightSource(azdeg=270, altdeg=45)
 dx = 25 * step
 grayscale = ls.hillshade(elev, dx=dx, dy=dx)
 black = np.zeros_like(grayscale)
-ax.pcolormesh(
-    x, y, black, alpha=0.3 * (1 - grayscale), cmap="gray", shading="gouraud", zorder=20
+# ax.pcolormesh(
+# x, y, black, alpha=0.3 * (1 - grayscale), cmap="gray", shading="gouraud", zorder=20
+# )
+extent = (x[0, 0], x[0, -1], y[-1, 0], y[0, 0])
+ax.imshow(
+    black,
+    alpha=0.5 * (1 - grayscale),
+    cmap="gray",
+    interpolation="bicubic",
+    extent=extent,
+    zorder=20,
 )
 
-# print("adding contour lines")
-# interlevels = np.arange(0, 300, 10)
-# ax.contour(x, y, elev, colors="sienna", levels=interlevels, linewidths=0.5, zorder=18)
-# levels = np.arange(0, 300, 50)
-# CS = ax.contour(x, y, elev, colors="sienna", levels=levels, linewidths=0.7, zorder=19)
-## plt.clabel(CS, fontsize=7, inline=False, inline_spacing=5)
+print("adding contour lines")
+interlevels = np.arange(0, 300, 10)
+ax.contour(x, y, elev, colors="sienna", levels=interlevels, linewidths=0.5, zorder=18)
+levels = np.arange(0, 300, 50)
+CS = ax.contour(x, y, elev, colors="sienna", levels=levels, linewidths=0.7, zorder=19)
+plt.clabel(CS, fontsize=7)
 
 
 def onclick(event):
@@ -87,9 +96,9 @@ def onclick(event):
 
 cid = fig.canvas.mpl_connect("button_press_event", onclick)
 
-ax.set_xlim(left, right)
-ax.set_ylim(bottom, top)
+ax.set_xlim(x[0, 0], x[0, -1])
+ax.set_ylim(y[-1, 0], y[0, 0])
 ax.set_axis_off()
 ax.set_frame_on(False)
-plt.savefig("test.png", dpi=200, bbox_inches="tight", pad_inches=0)
+# plt.savefig("test.png", dpi=200, bbox_inches="tight", pad_inches=0)
 plt.show()
