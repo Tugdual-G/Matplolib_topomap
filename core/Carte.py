@@ -4,6 +4,7 @@ from core.select_shape import select_shape_data
 import pandas as pd
 import numpy as np
 import matplotlib.patheffects as pe
+import matplotlib.pyplot as plt
 
 
 class Carte:
@@ -51,19 +52,9 @@ class Carte:
 
     def plot_txt(self, ax):
 
-        txtmargin = self.margin
-        txtleft = self.x0 - txtmargin
-        txtright = self.x0 + txtmargin
-        txtbottom = self.y0 - txtmargin
-        txttop = self.y0 + txtmargin
-
-        # bbox=dict(boxstyle="round", alpha=0.5, color="w", linewidth=0),
-
         for fclass in self.txt_style.index.tolist():
             styledict = eval(self.txt_style.loc[fclass]["style"])
-            txt_df = self.shape_df.loc[self.shape_df["fclass"] == fclass].cx[
-                txtleft:txtright, txtbottom:txttop
-            ]
+            txt_df = self.shape_df.loc[self.shape_df["fclass"] == fclass]
             for name in txt_df["name"]:
                 xt = txt_df[txt_df["name"] == name]["geometry"].centroid.x.iloc[0]
                 yt = txt_df[txt_df["name"] == name]["geometry"].centroid.y.iloc[0]

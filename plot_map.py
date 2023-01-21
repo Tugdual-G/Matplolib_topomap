@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import LightSource
+import matplotlib.patheffects as pe
 import glob
 from rasterio.plot import show
 from core.Carte import Carte
@@ -10,7 +11,7 @@ from core.Carte import Carte
 # Window, area of interest from center coordinates x0, y0
 # projection lambert93
 positions = {"mervent": (411684, 6609470), "lebeugnon": (431768, 6615611)}
-x0, y0 = positions["lebeugnon"]
+x0, y0 = positions["mervent"]
 step = 1
 margin = 5e3
 left = x0 - margin
@@ -28,14 +29,14 @@ carte.set_style(style_path)
 
 
 # data directory and files path
-dir_path1 = "data/shapes/osm_pays_loire"
+dir_path1 = "data/osm_pays_loire"
 land_path = "/gis_osm_landuse_a_free_1.shp"
 water_path = "/gis_osm_water_a_free_1.shp"
 road_path = "/gis_osm_roads_free_1.shp"
 places_path = "/gis_osm_places_free_1.shp"
 filesnames = [land_path, water_path, road_path, places_path]
 shapes_paths = [(dir_path1 + name) for name in filesnames]
-dir_path2 = "data/shapes/osm_poitou-charente"
+dir_path2 = "data/osm_poitou-charente"
 shapes_paths += [(dir_path2 + name) for name in filesnames]
 
 # extract data in area of interest
@@ -53,7 +54,7 @@ carte.set_raster_data(f_paths, step)
 
 # PLOT
 print("generating figure")
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=[8, 8])
 
 print("ploting shapes")
 carte.plot_shapes(ax)
@@ -67,7 +68,7 @@ elev = carte.raster_data[0]
 
 ls = LightSource(azdeg=270, altdeg=45)
 dx = 25 * step
-grayscale = ls.hillshade(elev, dx=dx, dy=dx)
+grayscale = ls.hillshade(elev, dx=dx, dy=dx, vert_exag=5)
 black = np.zeros_like(grayscale)
 # ax.pcolormesh(
 # x, y, black, alpha=0.3 * (1 - grayscale), cmap="gray", shading="gouraud", zorder=20
@@ -75,7 +76,7 @@ black = np.zeros_like(grayscale)
 extent = (x[0, 0], x[0, -1], y[-1, 0], y[0, 0])
 ax.imshow(
     black,
-    alpha=0.5 * (1 - grayscale),
+    alpha=0.4 * (1 - grayscale),
     cmap="gray",
     interpolation="bicubic",
     extent=extent,
@@ -86,8 +87,12 @@ print("adding contour lines")
 interlevels = np.arange(0, 300, 10)
 ax.contour(x, y, elev, colors="sienna", levels=interlevels, linewidths=0.5, zorder=18)
 levels = np.arange(0, 300, 50)
-CS = ax.contour(x, y, elev, colors="sienna", levels=levels, linewidths=0.7, zorder=19)
-plt.clabel(CS, fontsize=7)
+CS = ax.contour(x, y, elev, colors="sienna", levels=levels, linewidths=1, zorder=29)
+effect = [pe.withStroke(linewidth=2, foreground="white")]
+txts = ax.clabel(CS, fontsize=8, inline=False)
+txts = ax.clabel(CS, fontsize=8, inline=False)
+for txt in txts:
+    txt.set(path_effects=effect, zorder=50)
 
 
 def onclick(event):
@@ -100,5 +105,5 @@ ax.set_xlim(x[0, 0], x[0, -1])
 ax.set_ylim(y[-1, 0], y[0, 0])
 ax.set_axis_off()
 ax.set_frame_on(False)
-# plt.savefig("test.png", dpi=200, bbox_inches="tight", pad_inches=0)
+plt.savefig("test.png", dpi=100, bbox_inches="tight", pad_inches=0)
 plt.show()
