@@ -1,0 +1,877 @@
+[
+    {
+        "type": "roads",
+        "obj": [
+            {
+                "fclass": "trunk",
+                "code": 5112,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "trunk_link",
+                "code": 5132,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "motorway",
+                "code": 5111,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "primary",
+                "code": 5113,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "residential",
+                "code": 5122,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "tertiary",
+                "code": 5115,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "secondary",
+                "code": 5114,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "primary_link",
+                "code": 5133,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "motorway_link",
+                "code": 5131,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "service",
+                "code": 5141,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "unclassified",
+                "code": 5121,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "pedestrian",
+                "code": 5124,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "track",
+                "code": 5142,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "footway",
+                "code": 5153,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "living_street",
+                "code": 5123,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "path",
+                "code": 5154,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "cycleway",
+                "code": 5152,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "secondary_link",
+                "code": 5134,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "track_grade1",
+                "code": 5143,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "steps",
+                "code": 5155,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "track_grade3",
+                "code": 5145,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "track_grade2",
+                "code": 5144,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "track_grade5",
+                "code": 5147,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "track_grade4",
+                "code": 5146,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "tertiary_link",
+                "code": 5135,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "bridleway",
+                "code": 5151,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "unknown",
+                "code": 5199,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "busway",
+                "code": 5125,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "land",
+        "obj": [
+            {
+                "fclass": "scrub",
+                "code": 7217,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "cemetery",
+                "code": 7206,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "meadow",
+                "code": 7208,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "park",
+                "code": 7202,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "commercial",
+                "code": 7209,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "industrial",
+                "code": 7204,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "grass",
+                "code": 7218,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "forest",
+                "code": 7201,
+                "use": true,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "style": "italic",
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]",
+                    "clip_on": true
+                }
+            },
+            {
+                "fclass": "residential",
+                "code": 7203,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "allotments",
+                "code": 7207,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "military",
+                "code": 7213,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "retail",
+                "code": 7212,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "recreation_ground",
+                "code": 7211,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "farmyard",
+                "code": 7228,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "farmland",
+                "code": 7229,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "quarry",
+                "code": 7214,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "vineyard",
+                "code": 7216,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "orchard",
+                "code": 7215,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "nature_reserve",
+                "code": 7210,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "heath",
+                "code": 7219,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "water",
+        "obj": [
+            {
+                "fclass": "riverbank",
+                "code": 8202,
+                "use": false,
+                "style": {
+                    "color": "blue",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "water",
+                "code": 8200,
+                "use": true,
+                "style": {
+                    "color": "blue",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "reservoir",
+                "code": 8201,
+                "use": false,
+                "style": {
+                    "color": "blue",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "dock",
+                "code": 8203,
+                "use": false,
+                "style": {
+                    "color": "blue",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "wetland",
+                "code": 8221,
+                "use": false,
+                "style": {
+                    "color": "blue",
+                    "fontsize": 8,
+                    "zorder": 200,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "places",
+        "obj": [
+            {
+                "fclass": "city",
+                "code": 1001,
+                "use": true,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 201,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]",
+                    "clip_on": true
+                }
+            },
+            {
+                "fclass": "town",
+                "code": 1002,
+                "use": true,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 201,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]",
+                    "clip_on": true
+                }
+            },
+            {
+                "fclass": "village",
+                "code": 1003,
+                "use": true,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 201,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "suburb",
+                "code": 1010,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 201,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "hamlet",
+                "code": 1004,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 201,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "locality",
+                "code": 1050,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 201,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "farm",
+                "code": 1030,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 201,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            },
+            {
+                "fclass": "island",
+                "code": 1020,
+                "use": false,
+                "style": {
+                    "color": "black",
+                    "fontsize": 8,
+                    "zorder": 201,
+                    "horizontalalignment": "center",
+                    "verticalalignment": "center",
+                    "clip_on": true,
+                    "path_effects": "[pe.withStroke(linewidth=3, alpha=0.7, foreground=\"white\")]"
+                }
+            }
+        ]
+    }
+]

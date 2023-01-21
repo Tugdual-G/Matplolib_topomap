@@ -24,8 +24,9 @@ bounds = (left, bottom, right, top)
 carte = Carte((x0, y0), margin)
 
 # stylesheet specific to osm data fclass
-style_path = "styles/map_style.csv"
-carte.set_style(style_path)
+style_path = "styles"
+carte.set_style(style_path + "/default_style.json")
+carte.set_label_style(style_path + "/default_labelstyle.json")
 
 
 # data directory and files path

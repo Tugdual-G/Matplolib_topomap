@@ -1,0 +1,552 @@
+[
+    {
+        "type": "roads",
+        "obj": [
+            {
+                "fclass": "trunk",
+                "code": 5112,
+                "use": true,
+                "style": {
+                    "color": "r",
+                    "linewidth": 2,
+                    "path_effects": "[pe.withStroke(linewidth=3, foreground='k')]",
+                    "zorder": 115
+                }
+            },
+            {
+                "fclass": "trunk_link",
+                "code": 5132,
+                "use": true,
+                "style": {
+                    "color": "r",
+                    "linewidth": 2,
+                    "path_effects": "[pe.withStroke(linewidth=3, foreground='k')]",
+                    "zorder": 115
+                }
+            },
+            {
+                "fclass": "motorway",
+                "code": 5111,
+                "use": true,
+                "style": {
+                    "color": "r",
+                    "linewidth": 2,
+                    "path_effects": "[pe.withStroke(linewidth=3, foreground='k')]",
+                    "zorder": 114
+                }
+            },
+            {
+                "fclass": "primary",
+                "code": 5113,
+                "use": true,
+                "style": {
+                    "color": "r",
+                    "linewidth": 2,
+                    "path_effects": "[pe.withStroke(linewidth=3, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "residential",
+                "code": 5122,
+                "use": true,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 107
+                }
+            },
+            {
+                "fclass": "tertiary",
+                "code": 5115,
+                "use": true,
+                "style": {
+                    "color": "w",
+                    "linewidth": 2,
+                    "path_effects": "[pe.withStroke(linewidth=3, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "secondary",
+                "code": 5114,
+                "use": true,
+                "style": {
+                    "color": "y",
+                    "linewidth": 2,
+                    "path_effects": "[pe.withStroke(linewidth=3, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "primary_link",
+                "code": 5133,
+                "use": true,
+                "style": {
+                    "color": "r",
+                    "linewidth": 2,
+                    "path_effects": "[pe.withStroke(linewidth=3, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "motorway_link",
+                "code": 5131,
+                "use": true,
+                "style": {
+                    "color": "r",
+                    "linewidth": 2,
+                    "path_effects": "[pe.withStroke(linewidth=3, foreground='k')]",
+                    "zorder": 114
+                }
+            },
+            {
+                "fclass": "service",
+                "code": 5141,
+                "use": true,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 106
+                }
+            },
+            {
+                "fclass": "unclassified",
+                "code": 5121,
+                "use": true,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 106
+                }
+            },
+            {
+                "fclass": "pedestrian",
+                "code": 5124,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "track",
+                "code": 5142,
+                "use": true,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "linestyle":"--",
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 105
+                }
+            },
+            {
+                "fclass": "footway",
+                "code": 5153,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 104
+                }
+            },
+            {
+                "fclass": "living_street",
+                "code": 5123,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "path",
+                "code": 5154,
+                "use": true,
+                "style": {
+                    "color": "k",
+                    "linewidth": 1,
+                    "zorder": 104
+                }
+            },
+            {
+                "fclass": "cycleway",
+                "code": 5152,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "secondary_link",
+                "code": 5134,
+                "use": true,
+                "style": {
+                    "color": "y",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "track_grade1",
+                "code": 5143,
+                "use": true,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "linestyle":"--",
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "steps",
+                "code": 5155,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "track_grade3",
+                "code": 5145,
+                "use": true,
+                "style": {
+                    "color": "tan",
+                    "linestyle":"--",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "track_grade2",
+                "code": 5144,
+                "use": true,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "linestyle":"--",
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "track_grade5",
+                "code": 5147,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "track_grade4",
+                "code": 5146,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "tertiary_link",
+                "code": 5135,
+                "use": true,
+                "style": {
+                    "color": "w",
+                    "linewidth": 2,
+                    "path_effects": "[pe.withStroke(linewidth=3, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "bridleway",
+                "code": 5151,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "unknown",
+                "code": 5199,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            },
+            {
+                "fclass": "busway",
+                "code": 5125,
+                "use": false,
+                "style": {
+                    "color": "w",
+                    "linewidth": 1,
+                    "path_effects": "[pe.withStroke(linewidth=2, foreground='k')]",
+                    "zorder": 110
+                }
+            }
+        ]
+    },
+    {
+        "type": "land",
+        "obj": [
+            {
+                "fclass": "scrub",
+                "code": 7217,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "cemetery",
+                "code": 7206,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "meadow",
+                "code": 7208,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "park",
+                "code": 7202,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "commercial",
+                "code": 7209,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "industrial",
+                "code": 7204,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "grass",
+                "code": 7218,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "forest",
+                "code": 7201,
+                "use": true,
+                "style": {"facecolor": "#cefbb8",
+                          "zorder":10
+                }
+            },
+            {
+                "fclass": "residential",
+                "code": 7203,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "allotments",
+                "code": 7207,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "military",
+                "code": 7213,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "retail",
+                "code": 7212,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "recreation_ground",
+                "code": 7211,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "farmyard",
+                "code": 7228,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "farmland",
+                "code": 7229,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "quarry",
+                "code": 7214,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "vineyard",
+                "code": 7216,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "orchard",
+                "code": 7215,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "nature_reserve",
+                "code": 7210,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            },
+            {
+                "fclass": "heath",
+                "code": 7219,
+                "use": false,
+                "style": {
+                    "facecolor": "green",
+                    "zorder": 10
+                }
+            }
+        ]
+    },
+    {
+        "type": "water",
+        "obj": [
+            {
+                "fclass": "riverbank",
+                "code": 8202,
+                "use": true,
+                "style": {
+                    "facecolor": "lightblue",
+                    "zorder": 100
+                }
+            },
+            {
+                "fclass": "water",
+                "code": 8200,
+                "use": true,
+                "style": {
+                    "facecolor": "lightblue",
+                    "zorder": 100
+                }
+            },
+            {
+                "fclass": "reservoir",
+                "code": 8201,
+                "use": true,
+                "style": {
+                    "facecolor": "lightblue",
+                    "zorder": 100
+                }
+            },
+            {
+                "fclass": "dock",
+                "code": 8203,
+                "use": true,
+                "style": {
+                    "facecolor": "lightblue",
+                    "zorder": 100
+                }
+            },
+            {
+                "fclass": "wetland",
+                "code": 8221,
+                "use": true,
+                "style": {
+                    "facecolor": "lightblue",
+                    "zorder": 100
+                }
+            }
+        ]
+    }
+]
