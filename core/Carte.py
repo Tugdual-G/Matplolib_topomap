@@ -51,6 +51,8 @@ class Carte:
         self.max_elev = np.amax(self.raster_data[0])
         self.min_elev = np.amin(self.raster_data[0])
 
+        self.extent = (self.X[0, 0], self.X[0, -1], self.Y[-1, 0], self.Y[0, 0])
+
     def set_shape_data(self, paths):
         if self.label_style.empty and self.style.empty:
             raise ValueError("Set the style of the map before importing data")

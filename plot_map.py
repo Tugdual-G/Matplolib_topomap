@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.colors import LightSource
-import matplotlib.patheffects as pe
 import glob
-from rasterio.plot import show
 from core.Carte import Carte
+from matplotlib.transforms import Bbox
 
 # Window, area of interest from center coordinates x0, y0
 # projection lambert93
@@ -81,7 +78,9 @@ cid = fig.canvas.mpl_connect("button_press_event", onclick)
 
 ax.set_xlim(x[0, 0], x[0, -1])
 ax.set_ylim(y[-1, 0], y[0, 0])
-ax.set_axis_off()
-ax.set_frame_on(False)
-plt.savefig("test.png", dpi=100, bbox_inches="tight", pad_inches=0)
+
+a, b, c, d = carte.extent
+bbox = Bbox([[a, c], [b, d]])
+bbox = bbox.transformed(ax.transData).transformed(fig.dpi_scale_trans.inverted())
+plt.savefig("test.tif", dpi=200, bbox_inches=bbox)
 plt.show()
