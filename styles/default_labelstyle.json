@@ -500,7 +500,7 @@
             {
                 "fclass": "forest",
                 "code": 7201,
-                "use": true,
+                "use": false,
                 "style": {
                     "color": "black",
                     "fontsize": 8,
@@ -702,7 +702,7 @@
             {
                 "fclass": "water",
                 "code": 8200,
-                "use": true,
+                "use": false,
                 "style": {
                     "color": "blue",
                     "fontsize": 8,

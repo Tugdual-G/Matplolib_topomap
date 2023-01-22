@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.patheffects as pe
 import matplotlib.pyplot as plt
+from matplotlib.colors import LightSource
 import json
 
 
@@ -44,6 +45,7 @@ class Carte:
 
     def set_raster_data(self, paths, step=1):
         self.raster_data, self.X, self.Y = select_raster(self.bounds, paths, step=step)
+        self.step = step
 
     def set_shape_data(self, paths):
         if self.label_style.empty and self.style.empty:
@@ -98,3 +100,51 @@ class Carte:
                     s=name,
                     **styledict,
                 )
+
+    def plot_hillshade(self, ax, **kwargs):
+
+        x, y = self.X, self.Y
+        elev = self.raster_data
+        ls = LightSource(azdeg=270, altdeg=45)
+
+        dx = (x[0, 1] - [0, 0]) * self.step
+        grayscale = ls.hillshade(elev[0], dx=dx, dy=dx, vert_exag=5)
+        black = np.zeros_like(grayscale)
+        extent = (x[0, 0], x[0, -1], y[-1, 0], y[0, 0])
+
+        imoptions = {
+            "alpha": (0.4 * (1 - grayscale)),
+            "cmap": "gray",
+            "interpolation": "bicubic",
+            "extent": extent,
+            "zorder": 20,
+        }
+
+        imoptions.update(kwargs)
+
+        ax.imshow(
+            black,
+            **imoptions,
+        )
+
+    def plot_hillshaded_raster(self, ax, shadeargs={}, **kwargs):
+        x, y = self.X, self.Y
+        elev = self.raster_data
+        ls = LightSource(azdeg=270, altdeg=45)
+
+        dx = (x[0, 1] - x[0, 0]) * self.step
+        extent = (x[0, 0], x[0, -1], y[-1, 0], y[0, 0])
+
+        options = {
+            "cmap": plt.cm.gist_earth,
+            "dx": dx,
+            "dy": dx,
+            "vert_exag": 5,
+        }
+
+        options.update(shadeargs)
+        rgb = ls.shade(elev[0], **options)
+
+        imargs = {"alpha": 1, "zorder": 20, "interpolation": "bicubic"}
+        imargs.update(kwargs)
+        ax.imshow(rgb, extent=extent, **imargs)
