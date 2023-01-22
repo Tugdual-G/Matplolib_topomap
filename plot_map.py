@@ -2,15 +2,17 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import glob
+from pyproj import transform
 from core.Carte import Carte
-from matplotlib.transforms import Bbox
+import rasterio
 
 # Window, area of interest from center coordinates x0, y0
 # projection lambert93
 positions = {"mervent": (411684, 6609470), "lebeugnon": (431768, 6615611)}
 x0, y0 = positions["lebeugnon"]
+x0 += 3e3
 step = 1
-margin = 5 * 1e3
+margin = 2 * 1e3
 left = x0 - margin
 right = x0 + margin
 bottom = y0 - margin
@@ -63,10 +65,10 @@ carte.plot_txt(ax)
 print("adding hill shade")
 x, y = carte.X, carte.Y
 
-carte.plot_hillshaded_raster(ax)
+carte.plot_hillshaded_raster(ax, shadeargs={"vmin": 0, "vmax": 280})
 
 print("adding contour lines")
-carte.plot_contour(ax)
+# carte.plot_contour(ax)
 
 
 def onclick(event):
@@ -74,13 +76,8 @@ def onclick(event):
         print(f"x0, y0 = {round(event.xdata)}, {round(event.ydata)} (m)")
 
 
-cid = fig.canvas.mpl_connect("button_press_event", onclick)
+fig.canvas.mpl_connect("button_press_event", onclick)
 
-ax.set_xlim(x[0, 0], x[0, -1])
-ax.set_ylim(y[-1, 0], y[0, 0])
+carte.save_geotiff("test1.tiff", ax, fig)
 
-a, b, c, d = carte.extent
-bbox = Bbox([[a, c], [b, d]])
-bbox = bbox.transformed(ax.transData).transformed(fig.dpi_scale_trans.inverted())
-plt.savefig("test.tif", dpi=200, bbox_inches=bbox)
 plt.show()

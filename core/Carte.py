@@ -7,7 +7,10 @@ import numpy as np
 import matplotlib.patheffects as pe
 import matplotlib.pyplot as plt
 from matplotlib.colors import LightSource
+from matplotlib.transforms import Bbox
 import json
+import rasterio
+import warnings
 
 
 class Carte:
@@ -180,3 +183,37 @@ class Carte:
         txts = ax.clabel(CS, fontsize=8, inline=False)
         for txt in txts:
             txt.set(path_effects=effect, zorder=50)
+
+    def save_geotiff(self, name, ax, fig):
+
+        a, b, c, d = self.extent
+
+        ax.set_xlim(a, b)
+        ax.set_ylim(c, d)
+        ax.set_axis_off()
+        # ax.set_frame_on(False)
+
+        px_per_unit = ax.transData.transform([(0, 1), (1, 0)]) - ax.transData.transform(
+            (0, 0)
+        )
+        cropx = 2 / px_per_unit[1, 0]
+        cropy = 2 / px_per_unit[0, 1]
+        a, b = a + cropx, b - cropx
+        c, d = c + cropy, d - cropy
+        bbox = Bbox([[a, c], [b, d]])
+        bbox = bbox.transformed(ax.transData)
+        bbox = bbox.transformed(fig.dpi_scale_trans.inverted())
+        fig.savefig(name, dpi=100, bbox_inches=bbox)
+
+        with rasterio.open(
+            name,
+            "r+",
+            driver="GTiff",
+        ) as dst:
+            crs = rasterio.CRS.from_string(self.crs)
+            transform = rasterio.transform.from_bounds(
+                a, c, b, d, dst.width, dst.height
+            )
+            dst.crs = crs
+            dst.transform = transform
+        print(f"saved {name}")
