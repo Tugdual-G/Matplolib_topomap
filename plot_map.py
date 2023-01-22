@@ -65,38 +65,16 @@ carte.plot_txt(ax)
 
 print("adding hill shade")
 x, y = carte.X, carte.Y
-elev = carte.raster_data[0]
-#
-# ls = LightSource(azdeg=270, altdeg=45)
-# dx = 25 * step
-# grayscale = ls.hillshade(elev, dx=dx, dy=dx, vert_exag=5)
-# black = np.zeros_like(grayscale)
-# extent = (x[0, 0], x[0, -1], y[-1, 0], y[0, 0])
-# ax.imshow(
-# black,
-# alpha=0.4 * (1 - grayscale),
-# cmap="gray",
-# interpolation="bicubic",
-# extent=extent,
-# zorder=20,
-# )
-#
+
 carte.plot_hillshaded_raster(ax)
 
-# print("adding contour lines")
-# interlevels = np.arange(0, 300, 10)
-# ax.contour(x, y, elev, colors="sienna", levels=interlevels, linewidths=0.5, zorder=18)
-# levels = np.arange(0, 300, 50)
-# CS = ax.contour(x, y, elev, colors="sienna", levels=levels, linewidths=1, zorder=29)
-# effect = [pe.withStroke(linewidth=2, foreground="white")]
-# txts = ax.clabel(CS, fontsize=8, inline=False)
-# txts = ax.clabel(CS, fontsize=8, inline=False)
-# for txt in txts:
-# txt.set(path_effects=effect, zorder=50)
+print("adding contour lines")
+carte.plot_contour(ax)
 
 
 def onclick(event):
-    print(f"x0, y0 = {round(event.xdata)}, {round(event.ydata)}")
+    if event.xdata != None:
+        print(f"x0, y0 = {round(event.xdata)}, {round(event.ydata)} (m)")
 
 
 cid = fig.canvas.mpl_connect("button_press_event", onclick)

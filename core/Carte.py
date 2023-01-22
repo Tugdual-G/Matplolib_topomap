@@ -24,6 +24,8 @@ class Carte:
         self.style = pd.DataFrame()
         self.codes = []
         self.lbl_codes = []
+        self.max_elev = 8 * 1e3
+        self.min_elev = 0
 
         self.crs = "epsg:2154"
 
@@ -46,6 +48,8 @@ class Carte:
     def set_raster_data(self, paths, step=1):
         self.raster_data, self.X, self.Y = select_raster(self.bounds, paths, step=step)
         self.step = step
+        self.max_elev = np.amax(self.raster_data[0])
+        self.min_elev = np.amin(self.raster_data[0])
 
     def set_shape_data(self, paths):
         if self.label_style.empty and self.style.empty:
@@ -148,3 +152,29 @@ class Carte:
         imargs = {"alpha": 1, "zorder": 20, "interpolation": "bicubic"}
         imargs.update(kwargs)
         ax.imshow(rgb, extent=extent, **imargs)
+
+    def plot_contour(self, ax, step=10, **kwargs):
+
+        x, y = self.X, self.Y
+        elev = self.raster_data
+
+        interlevels = np.arange(step * (self.min_elev // step), self.max_elev, step)
+        ax.contour(
+            x,
+            y,
+            elev[0],
+            colors="sienna",
+            levels=interlevels,
+            linewidths=0.5,
+            zorder=28,
+        )
+
+        levels = interlevels[::5]
+        CS = ax.contour(
+            x, y, elev[0], colors="sienna", levels=levels, linewidths=1, zorder=29
+        )
+
+        effect = [pe.withStroke(linewidth=2, foreground="white")]
+        txts = ax.clabel(CS, fontsize=8, inline=False)
+        for txt in txts:
+            txt.set(path_effects=effect, zorder=50)
