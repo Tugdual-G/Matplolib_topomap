@@ -14,15 +14,9 @@ import warnings
 
 
 class Carte:
-    def __init__(self, center, margin):
+    def __init__(self, bounds):
 
-        self.x0, self.y0 = center
-        self.margin = margin
-        left = self.x0 - margin
-        right = self.x0 + margin
-        bottom = self.y0 - margin
-        top = self.y0 + margin
-        self.bounds = (left, bottom, right, top)
+        self.bounds = bounds
         self.label_style = pd.DataFrame()
         self.style = pd.DataFrame()
         self.codes = []
@@ -81,6 +75,7 @@ class Carte:
         self.shape_df = self.shape_df.to_crs(self.crs)
 
     def plot_shapes(self, ax):
+        print("ploting shapes")
         for code in self.style.index.unique():
             styledict = self.style.loc[code]["style"]
             if "path_effects" in styledict:
@@ -90,7 +85,7 @@ class Carte:
             self.shape_df[self.shape_df.index == code].plot(ax=ax, **styledict)
 
     def plot_txt(self, ax):
-
+        print("adding places labels")
         for code in self.label_style.index.tolist():
 
             styledict = self.label_style.loc[code]["style"]
@@ -112,6 +107,7 @@ class Carte:
 
     def plot_hillshade(self, ax, **kwargs):
 
+        print("plotting hill shade")
         x, y = self.X, self.Y
         elev = self.raster_data
         ls = LightSource(azdeg=270, altdeg=45)
@@ -137,6 +133,7 @@ class Carte:
         )
 
     def plot_hillshaded_raster(self, ax, shadeargs={}, **kwargs):
+        print("plotting hill-shaded raster")
         x, y = self.X, self.Y
         elev = self.raster_data
         ls = LightSource(azdeg=270, altdeg=45)
@@ -149,6 +146,8 @@ class Carte:
             "dx": dx,
             "dy": dx,
             "vert_exag": 5,
+            "vmin": self.min_elev,
+            "vmax": self.max_elev,
         }
 
         options.update(shadeargs)
@@ -160,6 +159,7 @@ class Carte:
 
     def plot_contour(self, ax, step=10, **kwargs):
 
+        print("plotting contour lines")
         x, y = self.X, self.Y
         elev = self.raster_data
 
@@ -185,7 +185,9 @@ class Carte:
             txt.set(path_effects=effect, zorder=50)
 
     def save_geotiff(self, name, ax, fig):
+        import matplotlib
 
+        matplotlib.use("agg")
         a, b, c, d = self.extent
 
         ax.set_xlim(a, b)
@@ -200,20 +202,22 @@ class Carte:
         cropy = 2 / px_per_unit[0, 1]
         a, b = a + cropx, b - cropx
         c, d = c + cropy, d - cropy
+        # ax.axvline(a, linewidth=1, zorder=900)
         bbox = Bbox([[a, c], [b, d]])
         bbox = bbox.transformed(ax.transData)
         bbox = bbox.transformed(fig.dpi_scale_trans.inverted())
-        fig.savefig(name, dpi=100, bbox_inches=bbox)
-
-        with rasterio.open(
-            name,
-            "r+",
-            driver="GTiff",
-        ) as dst:
-            crs = rasterio.CRS.from_string(self.crs)
-            transform = rasterio.transform.from_bounds(
-                a, c, b, d, dst.width, dst.height
-            )
-            dst.crs = crs
-            dst.transform = transform
+        fig.savefig(name, dpi=300, bbox_inches=bbox)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            with rasterio.open(
+                name,
+                "r+",
+                driver="GTiff",
+            ) as dst:
+                crs = rasterio.CRS.from_string(self.crs)
+                transform = rasterio.transform.from_bounds(
+                    a, c, b, d, dst.width, dst.height
+                )
+                dst.crs = crs
+                dst.transform = transform
         print(f"saved {name}")
