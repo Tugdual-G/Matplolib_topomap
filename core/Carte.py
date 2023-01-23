@@ -202,7 +202,7 @@ class Carte:
         cropy = 2 / px_per_unit[0, 1]
         a, b = a + cropx, b - cropx
         c, d = c + cropy, d - cropy
-        # ax.axvline(a, linewidth=1, zorder=900)
+
         bbox = Bbox([[a, c], [b, d]])
         bbox = bbox.transformed(ax.transData)
         bbox = bbox.transformed(fig.dpi_scale_trans.inverted())
